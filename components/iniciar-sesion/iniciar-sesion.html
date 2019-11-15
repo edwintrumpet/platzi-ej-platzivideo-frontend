@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Header</title>
+    <title>Iniciar sesión</title>
     <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <header class="header">
-        <img class="header__img" src="../../assets/logo-platzi-video.png" alt="logo platzi video">
+        <img tabindex="0" class="header__img" src="../../assets/logo-platzi-video.png" alt="logo platzi video">
     </header>
     <section class="login">
         <section class="login__container">
-            <h2>Inicia sesión</h2>
+            <h2 tabindex="0">Inicia sesión</h2>
             <form class="login__container--form">
-                <input type="text" class="input" placeholder="Correo">
-                <input type="password" class="input" placeholder="Contraseña">
+                <input aria-label="Correo" type="text" class="input" placeholder="Correo">
+                <input aria-label="Contraseña" type="password" class="input" placeholder="Contraseña">
                 <button class="button">Iniciar sesión</button>
                 <div class="login__container--remember-me">
                     <label>
@@ -27,11 +27,11 @@
                 </div>
             </form>
             <section class="login__container--social-media">
-                <div>
+                <div tabindex="0">
                     <img src="../../assets/google-icon.png" alt="Google">
                     Inicia sesión con Google
                 </div>
-                <div>
+                <div tabindex="0">
                     <img src="../../assets/twitter-icon.png" alt="Twitter">
                     Inicia sesión con Twitter
                 </div>
