@@ -1,1 +1,4 @@
 assets/BigBuckBunny.mp4
+.cache/
+dist/
+node_modules/
