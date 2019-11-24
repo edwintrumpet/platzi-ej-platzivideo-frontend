@@ -10,7 +10,7 @@ import '../assets/styles/App.scss';
 
 const API = 'http://localhost:3000/initalState';
 
-const App = () => {
+const Home = () => {
   const initialState = useInitialState(API);
   return (
     <div className='App'>
@@ -60,4 +60,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;
