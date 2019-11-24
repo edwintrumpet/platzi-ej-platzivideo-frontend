@@ -1,0 +1,37 @@
+.not-found {
+    width: 100%;
+    height: calc(100vh - 200px);
+    background: linear-gradient(#21C08B, #AB88FF);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.not-found__pulse-container {
+    overflow: hidden;
+    height: 85px;
+}
+.not-found__title {
+    margin: 0;
+    font-size: 70px;
+    font-weight: normal;
+    animation: pulse 3s ease infinite;
+}
+.not-found__message {
+    font-size: 16px;
+}
+@keyframes pulse {
+    0% {
+        font-size: 70px;
+    }
+    50% {
+        font-size: 70px;
+    }
+    75% {
+        font-size: 85px;
+    }
+    100% {
+        font-size: 70px;
+    }
+}
