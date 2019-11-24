@@ -10,46 +10,44 @@ import '../assets/styles/App.scss';
 const API = 'http://localhost:3000/initalState';
 
 const App = () => {
-  const [videos, setVideos] = useState([]);
-
+  const [videos, setVideos] = useState({
+    mylist: [],
+    trends: [],
+    originals: [],
+  });
   useEffect(() => {
     fetch(API)
       .then((response) => response.json())
       .then((data) => setVideos(data))
       .catch((err) => console.log(err));
   }, []);
-
-  console.log(videos);
-
   return (
     <div className='App'>
       <Header />
       <Search />
-
-      <Categories title='Mi lista'>
-        <Carousel>
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-        </Carousel>
-      </Categories>
+      {
+        videos.mylist.length > 0 && (
+          <Categories title='Mi lista'>
+            <Carousel>
+              <CarouselItem />
+            </Carousel>
+          </Categories>
+        )
+      }
 
       <Categories title='Tendencias'>
         <Carousel>
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
+          {
+            videos.trends.map((item) => <CarouselItem key={item.id} {...item} />)
+          }
         </Carousel>
       </Categories>
 
       <Categories title='Originales de PlatziVideo'>
         <Carousel>
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
+          {
+            videos.originals.map((item) => <CarouselItem key={item.id} {...item} />)
+          }
         </Carousel>
       </Categories>
       <Footer />
