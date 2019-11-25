@@ -15,6 +15,7 @@ const CarouselItem = ({
   year,
   contentRating,
   duration,
+  isMylist,
   setFavorite,
   deleteFavorite,
 }) => {
@@ -34,16 +35,21 @@ const CarouselItem = ({
       <div className='carousel-item__details'>
         <div>
           <img src={playIcon} alt='play' />
-          <img
-            src={plusIcon}
-            alt='add'
-            onClick={handleSetFavorite}
-          />
-          <img
-            src={removeIcon}
-            alt='remove'
-            onClick={() => handleDeleteFavorite(id)}
-          />
+          {
+            isMylist ? (
+              <img
+                src={removeIcon}
+                alt='remove'
+                onClick={() => handleDeleteFavorite(id)}
+              />
+            ) : (
+              <img
+                src={plusIcon}
+                alt='add'
+                onClick={handleSetFavorite}
+              />
+            )
+          }
         </div>
         <p className='carousel-item__details--title'>{title}</p>
         <p className='carousel-item__details--subtitle'>
