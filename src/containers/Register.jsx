@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {registerRequest} from '../actions';
+import { registerRequest } from '../actions';
 import '../assets/styles/containers/Register.scss';
 
 const Register = ({ registerRequest, history }) => {
