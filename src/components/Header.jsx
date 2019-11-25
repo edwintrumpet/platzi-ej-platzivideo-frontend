@@ -32,7 +32,7 @@ const Header = ({ user, logoutRequest }) => {
         </div>
         <ul>
           {
-            hasUser && <li><a href='/'>Cuenta</a></li>
+            hasUser && <li><a href='/'>{user.name}</a></li>
           }
           {
             hasUser ?
@@ -56,4 +56,3 @@ const mapDipatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDipatchToProps)(Header);
-
