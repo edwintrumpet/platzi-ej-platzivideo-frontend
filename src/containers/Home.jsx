@@ -5,10 +5,32 @@ import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
 
-const Home = ({ mylist, trends, originals }) => {
+const Home = ({ mylist, trends, originals, searchText }) => {
+  const regex = new RegExp(`.*${searchText.toLowerCase()}.*`);
+
   return (
     <>
       <Search isHome />
+      {
+        searchText && (
+          <Categories title='Resultados de la búsqueda'>
+            <Carousel>
+              {
+                trends.filter((item) => regex.test(item.title.toLowerCase()))
+                  .map((item) => (
+                    <CarouselItem key={item.id} {...item} />
+                  ))
+              }
+              {
+                originals.filter((item) => regex.test(item.title.toLowerCase()))
+                  .map((item) => (
+                    <CarouselItem key={item.id} {...item} />
+                  ))
+              }
+            </Carousel>
+          </Categories>
+        )
+      }
       {
         mylist.length > 0 && (
           <Categories title='Mi lista'>
@@ -57,6 +79,7 @@ const mapStateToProps = (state) => {
     mylist: state.mylist,
     trends: state.trends,
     originals: state.originals,
+    searchText: state.searchText,
   };
 };
 

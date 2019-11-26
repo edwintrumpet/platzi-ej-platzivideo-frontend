@@ -2,6 +2,7 @@ const initialState = {
   'user': {},
   'playing': {},
   'mylist': [],
+  'searchText': '',
   'trends': [
     {
       'id': 2,
