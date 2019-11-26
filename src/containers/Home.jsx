@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
@@ -81,6 +82,13 @@ const mapStateToProps = (state) => {
     originals: state.originals,
     searchText: state.searchText,
   };
+};
+
+Home.propTypes = {
+  mylist: PropTypes.array.isRequired,
+  trends: PropTypes.array.isRequired,
+  originals: PropTypes.array.isRequired,
+  searchText: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps, null)(Home);

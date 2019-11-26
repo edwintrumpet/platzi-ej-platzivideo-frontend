@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { loginRequest } from '../actions';
 import googleIcon from '../assets/static/google-icon.png';
 import twitterIcon from '../assets/static/twitter-icon.png';
@@ -81,6 +82,10 @@ const Login = ({ loginRequest, history }) => {
 
 const mapDispatchToProps = {
   loginRequest,
+};
+
+Login.propTypes = {
+  loginRequest: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(Login);
