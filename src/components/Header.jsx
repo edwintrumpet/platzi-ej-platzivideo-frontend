@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import gravatar from '../utils/gravatar';
 import { logoutRequest } from '../actions';
@@ -11,13 +11,21 @@ import userIcon from '../assets/static/user-icon.png';
 
 const Header = ({ user, logoutRequest }) => {
   const hasUser = Object.keys(user).length > 0;
+  const location = useLocation();
+  let headerForm;
 
   const handleLogout = () => {
     logoutRequest({});
   };
 
+  if (location.pathname === '/login' || location.pathname === '/register') {
+    headerForm = true;
+  } else {
+    headerForm = false;
+  }
+
   return (
-    <header className='header'>
+    <header className={headerForm ? 'header header--color' : 'header'}>
       <Link to='/'>
         <img className='header__img' src={logo} alt='logo platzi video' />
       </Link>

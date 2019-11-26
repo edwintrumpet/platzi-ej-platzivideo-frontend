@@ -34,6 +34,7 @@ const Register = ({ registerRequest, history }) => {
             className='input'
             placeholder='Nombre'
             onChange={handleInput}
+            autoComplete='true'
           />
           <input
             name='email'
@@ -42,6 +43,7 @@ const Register = ({ registerRequest, history }) => {
             className='input'
             placeholder='Correo'
             onChange={handleInput}
+            autoComplete='true'
           />
           <input
             name='password'
@@ -50,6 +52,7 @@ const Register = ({ registerRequest, history }) => {
             className='input'
             placeholder='Contraseña'
             onChange={handleInput}
+            autoComplete='true'
           />
           <button type='submit' className='button'>Registrarme</button>
         </form>

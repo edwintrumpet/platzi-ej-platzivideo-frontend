@@ -37,6 +37,7 @@ const Login = ({ loginRequest, history }) => {
             className='input'
             placeholder='Correo'
             onChange={handleInput}
+            autoComplete='true'
           />
           <input
             name='password'
@@ -45,6 +46,7 @@ const Login = ({ loginRequest, history }) => {
             className='input'
             placeholder='Contraseña'
             onChange={handleInput}
+            autoComplete='true'
           />
           <button type='submit' className='button'>Iniciar sesión</button>
           <div className='login__container--remember-me'>
