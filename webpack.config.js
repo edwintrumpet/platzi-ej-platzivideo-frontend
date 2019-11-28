@@ -1,6 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   entry: './src/frontend/index.js',
@@ -57,8 +58,17 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
           },
           'css-loader',
-          'sass-loader',
           'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              prependData: `
+              @import "${path.resolve(__dirname, 'src/frontend/assets/styles/Vars.scss')}";
+              @import "${path.resolve(__dirname, 'src/frontend/assets/styles/Media.scss')}";
+              @import "${path.resolve(__dirname, 'src/frontend/assets/styles/App.scss')}";
+              `,
+            },
+          },
         ],
       },
       {
