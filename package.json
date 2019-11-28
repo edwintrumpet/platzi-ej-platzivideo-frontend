@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --open --mode development",
-    "fake-api": "json-server initialState.json"
+    "fake-api": "json-server initialState.json",
+    "dev": "nodemon src/server/index.js --exact babel-node"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,10 @@
   },
   "homepage": "https://github.com/edwintrumpet/platzi-ej-platzivideo-frontend#readme",
   "dependencies": {
+    "@babel/register": "^7.7.4",
     "classnames": "^2.2.6",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "md5": "^2.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
@@ -46,6 +50,7 @@
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",
+    "nodemon": "^2.0.1",
     "sass-loader": "^8.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
