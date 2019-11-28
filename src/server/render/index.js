@@ -1,3 +1,21 @@
+import dotenv from 'dotenv';
+import getManifest from '../getManifest';
+
+dotenv.config();
+
+const isProd = process.env.NODE_ENV === 'production';
+let files;
+
+if (isProd) {
+  files = getManifest();
+} else {
+  files = {
+    'main.css': 'assets/app.css',
+    'main.js': 'assets/app.js',
+    'vendors.js': 'assets/vendors.js',
+  };
+}
+
 const render = (html, preloadedState) => {
   return (`
     <!DOCTYPE html>
@@ -7,7 +25,7 @@ const render = (html, preloadedState) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Platzivideo</title>
-        <link rel="stylesheet" href="assets/app.css" type="text/css"></link>
+        <link rel="stylesheet" href="${files['main.css']}" type="text/css"></link>
     </head>
     <body>
         <div id="root">${html}</div>
@@ -19,8 +37,8 @@ const render = (html, preloadedState) => {
       '\\u003c',
     )}
           </script>
-        <script src="assets/app.js" type="text/javascript"></script>
-        <script src="assets/vendor.js" type="text/javascript"></script>
+        <script src="${files['main.js']}" type="text/javascript"></script>
+        <script src="${files['vendors.js']}" type="text/javascript"></script>
     </body>
     </html>
     `);
