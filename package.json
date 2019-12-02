@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/edwintrumpet/platzi-ej-platzivideo-frontend#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.7.0",
     "@babel/register": "^7.7.4",
     "asset-require-hook": "^1.2.0",
+    "axios": "^0.19.0",
     "classnames": "^2.2.6",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

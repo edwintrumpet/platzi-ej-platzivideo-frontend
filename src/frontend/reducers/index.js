@@ -23,7 +23,7 @@ const reducer = (state, action) => {
     case 'REGISTER_REQUEST':
       return {
         ...state,
-        user: action.payload,
+        // user: action.payload,
       };
     case 'GET_VIDEO_SOURCE':
       return {

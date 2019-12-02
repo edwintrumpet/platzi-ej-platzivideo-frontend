@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { registerRequest } from '../actions';
+import { registerUser } from '../actions';
 import '../assets/styles/containers/Register.scss';
 
-const Register = ({ registerRequest, history }) => {
+const Register = ({ registerUser, history }) => {
   const [formValues, setFormValues] = useState({
     email: '',
     name: '',
@@ -19,8 +19,7 @@ const Register = ({ registerRequest, history }) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    registerRequest(formValues);
-    history.push('/');
+    registerUser(formValues, '/login');
   };
   return (
     <section className='register'>
@@ -35,6 +34,7 @@ const Register = ({ registerRequest, history }) => {
             placeholder='Nombre'
             onChange={handleInput}
             autoComplete='true'
+            required
           />
           <input
             name='email'
@@ -44,6 +44,7 @@ const Register = ({ registerRequest, history }) => {
             placeholder='Correo'
             onChange={handleInput}
             autoComplete='true'
+            required
           />
           <input
             name='password'
@@ -53,6 +54,7 @@ const Register = ({ registerRequest, history }) => {
             placeholder='Contraseña'
             onChange={handleInput}
             autoComplete='true'
+            required
           />
           <button type='submit' className='button'>Registrarme</button>
         </form>
@@ -63,11 +65,11 @@ const Register = ({ registerRequest, history }) => {
 };
 
 const mapDispatchToProps = {
-  registerRequest,
+  registerUser,
 };
 
 Register.propTypes = {
-  registerRequest: PropTypes.func.isRequired,
+  registerUser: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(Register);
